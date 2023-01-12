@@ -1,0 +1,30 @@
+export default (app) => {
+  app.post(
+    `/tenant/:tenantId/campaign-instance-emails`,
+    require('./campaignInstanceEmailsCreate').default,
+  );
+  app.put(
+    `/tenant/:tenantId/campaign-instance-emails/:id`,
+    require('./campaignInstanceEmailsUpdate').default,
+  );
+  app.post(
+    `/tenant/:tenantId/campaign-instance-emails/import`,
+    require('./campaignInstanceEmailsImport').default,
+  );
+  app.delete(
+    `/tenant/:tenantId/campaign-instance-emails`,
+    require('./campaignInstanceEmailsDestroy').default,
+  );
+  app.get(
+    `/tenant/:tenantId/campaign-instance-emails/autocomplete`,
+    require('./campaignInstanceEmailsAutocomplete').default,
+  );
+  app.get(
+    `/tenant/:tenantId/campaign-instance-emails`,
+    require('./campaignInstanceEmailsList').default,
+  );
+  app.get(
+    `/tenant/:tenantId/campaign-instance-emails/:id`,
+    require('./campaignInstanceEmailsFind').default,
+  );
+};
